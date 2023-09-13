@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Sprint</title>
+</head>
+
+<body>
+    <h1>Calculadora Orçamental</h1>
+    Nos informe a área do seu Armazém (m²):
+    <input type="text" id="input_areaArmazem"><br>
+    Nos informe seu Lucro Mensal:
+    <input type="text" id="input_media_lucroMensal">
+<br>
+    <button onclick="calculeOrcamento()"> Calcular Orçamento </button>
+    <br>
+    <div id="div_precoOrcamento"></div>
+    <div id="div_perdas"></div>
+    <div id="div_ganho"></div>
+
+</body>
+
+</html>
+<script>
+    function calculeOrcamento(){
+        var lucroMensal = Number(input_media_lucroMensal.value);
+        var lucroAnual = lucroMensal * 12;
+        var perda = lucroAnual - (lucroAnual * 0.15);
+        var ganho = lucroAnual * 0.10;
+        var area = Number(input_areaArmazem.value);
+        var sensores = area / 4;
+        var precoSensores = sensores * 15;
+        var total = precoSensores + 5000;
+        
+
+
+        div_precoOrcamento.innerHTML= `O seu orçamento totalizará R$${total}, considerando a incorporação de ${sensores} sensores para abranger uma área de ${area} metros².`
+        div_perdas.innerHTML=`O potencial de perdas decorrentes da ausência de sensores apropriados poderá acarretar em um impacto financeiro significativo de R$${perda}`
+        div_ganho.innerHTML=`Os benfícios associados á implementação de sensores apropriados podem resultar em ganhos financeiros de R$${ganho}`
+        
+        
+
+    }
+          
+</script>
